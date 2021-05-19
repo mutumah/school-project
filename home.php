@@ -87,7 +87,7 @@ Now with Lieu Online Venue Booking System you can book venues at the comfort of 
                 </li>
               </ul>
             </div>
-            <div class="rooms_price">$129/<span>Day</span></div>
+            <div class="rooms_price">Kshs 2000/<span>Day</span></div>
             <div class="button menu_button"><a href="<?php echo WEB_ROOT;?>index.php?p=rooms">book now</a></div>
            
           </div>
@@ -128,7 +128,7 @@ Now with Lieu Online Venue Booking System you can book venues at the comfort of 
                 </li>
               </ul>
             </div>
-            <div class="rooms_price">$89/<span>Day</span></div>
+            <div class="rooms_price">Kshs 3000/<span>Day</span></div>
             <div class="button menu_button"><a href="<?php echo WEB_ROOT;?>index.php?p=rooms">book now</a></div>
            
           </div>

@@ -66,8 +66,8 @@ class Database {
 		return $array;
 	}
 	
-	function loadSingleResult($query) {
-		$cur = $this->executeQuery($query);
+	function loadSingleResult() {
+		$cur = $this->executeQuery();
 			
 		while ($row = mysqli_fetch_object($cur)) {
 		return $data = $row;

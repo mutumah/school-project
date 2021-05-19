@@ -13,7 +13,7 @@ $_SESSION['to']  = $_POST['to'];
  <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Marimar</title>
+<title>LIEU BOOKING</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="Marimar Hotel template project">
@@ -32,7 +32,7 @@ $_SESSION['to']  = $_POST['to'];
 
  <link href="<?php echo WEB_ROOT; ?>styles/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
  <link href="<?php echo WEB_ROOT; ?>styles/datepicker.css" rel="stylesheet" media="screen">
-
+ 
 <?php
 if (isset($_SESSION['dragonhouse_cart'])){
   if (count($_SESSION['dragonhouse_cart'])>0) {
@@ -84,7 +84,7 @@ if (isset($_SESSION['activity'])){
 
 
         <!-- Header Link -->
-        <div class="header_link"><a href="#">List Your Venue</a></div>
+        <div class="header_link"><a href="listing/login.php">List Your Venue</a></div>
 
         <!-- Hamburger Button -->
         <div class="hamburger"><i class="fa fa-bars" aria-hidden="true"></i></div>
@@ -135,7 +135,7 @@ if (isset($_SESSION['activity'])){
           <li><a href="<?php echo WEB_ROOT;?>index.php">Home</a></li>
           <li><a href="<?php echo WEB_ROOT;?>index.php?p=about">About us</a></li>
           <li><a href="<?php echo WEB_ROOT;?>index.php?p=rooms">Venues</a></li> 
-          <li><a href="<?php echo WEB_ROOT;?>index.php?p=contact">Contact</a></li>
+          <!-- <li><a href="<?php echo WEB_ROOT;?>index.php?p=contact"></a></li> -->
         </ul>
       </nav>
       <div class="button menu_button"><a href="#">book now</a></div>
@@ -175,11 +175,20 @@ if (isset($_SESSION['activity'])){
             <form action="<?php echo WEB_ROOT;?>index.php?p=booking" method="POST" class="booking_form" autocomplete="off">
               <div class="booking_form_container d-flex flex-lg-row flex-column align-items-start justify-content-start flex-wrap">
                 <div class="booking_form_inputs d-flex flex-row align-items-start justify-content-between flex-wrap">
-                  <div class="booking_dropdown"><input type="text" class="datepicker booking_input booking_input_a booking_in" placeholder="Check in" name="arrival" required="required" value="<?php echo isset($_POST['arrival']) ? $_POST['arrival'] :date('m/d/Y');?>"></div>
-                  <div class="booking_dropdown"><input type="text" class="datepicker booking_input booking_input_a booking_out" placeholder="Check out" name="departure" required="required" value="<?php echo isset($_POST['departure']) ? $_POST['departure'] : date('m/d/Y');?>" ></div>
+                <div class='input-group date' id='datetimepicker'>
+                    <input type='text' class="form-control" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+
+
+                  <div class="booking_dropdown" id='datetimepicker'><input type="text" class="datepicker booking_input booking_input_a booking_in" placeholder="Check in" name="arrival" required="required" ></div>
+                  <div class="booking_dropdown" id='datetimepicker'><input type="text" class="datepicker booking_input booking_input_a booking_out" placeholder="Check out" name="departure" required="required" ></div>
+
                   <div class="custom-select">
                     <select name="person" id="person">
-                      <option value="0">Person</option>
+                      <option value="0">Capacity</option>
                       <?php $sql ="SELECT distinct(`NUMPERSON`) as 'NumberPerson' FROM `tblroom`";
                                $mydb->setQuery($sql);
                              $cur = $mydb->loadResultList(); 
@@ -203,7 +212,7 @@ if (isset($_SESSION['activity'])){
                     </select>
                   </div>
                 </div>
-                <button class="booking_form_button ml-lg-auto">book now</button>
+                <button class="booking_form_button ml-lg-auto">Search</button>
               </div>
             </form>
           </div>
@@ -231,9 +240,9 @@ if (isset($_SESSION['activity'])){
     <div class="container">
       <div class="row">
         <div class="col">
-          <div class="footer_logo text-center">
+          <!-- <div class="footer_logo text-center">
             <a href="#"><img src="images/logo24.png" alt=""></a>
-          </div>
+          </div> -->
           <div class="footer_content">
             <div class="row">
               <div class="col-lg-4 footer_col">
@@ -291,6 +300,20 @@ if (isset($_SESSION['activity'])){
 <script type="text/javascript" src="<?php echo WEB_ROOT; ?>js/bootstrap-datepicker.js" charset="UTF-8"></script>
 <script type="text/javascript" src="<?php echo WEB_ROOT; ?>js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
 <script type="text/javascript" src="<?php echo WEB_ROOT; ?>js/bootstrap-datetimepicker.uk.js" charset="UTF-8"></script>
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker').datetimepicker({
+            minDate:new Date()
+        });
+    });
+</script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+
 </body>
 </html>
 <!-- Modal photo -->

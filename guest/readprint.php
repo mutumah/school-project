@@ -111,7 +111,7 @@ require_once("../includes/initialize.php");
               <th>Price</th>
               <th>Arrival</th>
               <th>Departure</th>
-              <th>Night(s)</th>
+              <th>Day(s)</th>
               <th>Subtotal</th>
             </tr>
             </thead>
@@ -123,11 +123,11 @@ require_once("../includes/initialize.php");
             <tr> 
               <td><?php echo $result->ACCOMODATION . ' [' .$result->ROOM.']' ;?></td>
               <td><?php echo $result->ROOMDESC . ' <br/> Person: ' .  $result->NUMPERSON;?></td>
-              <td> &euro; <?php echo $result->PRICE;?></td>
+              <td> Kshs <?php echo $result->PRICE;?></td>
               <td><?php echo date_format(date_create($result->ARRIVAL),'m/d/Y');?></td>
               <td><?php echo date_format(date_create($result->DEPARTURE),'m/d/Y');?></td>
               <td><?php echo ($days==0) ? '1' : $days;?></td>
-              <td> &euro; <?php echo $result->RPRICE;?></td>
+              <td> Kshs <?php echo $result->RPRICE;?></td>
             </tr>
             
             

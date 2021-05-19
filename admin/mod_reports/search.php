@@ -47,7 +47,7 @@
 <td ><strong>Departure</strong></td>
 <td ><strong>Room</strong></td>
 <td ><strong>Price</strong></td>
-<td ><strong>Nights</strong></td>
+<td ><strong>Days</strong></td>
 <td ><strong>Subtotal</strong></td>
 <td ><strong>Status</strong></td>
 </tr>

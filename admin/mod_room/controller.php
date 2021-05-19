@@ -37,10 +37,10 @@ function doInsert(){
 				$res = $room->find_all_room($_POST['ROOM']);
 				
 				
-				if ($res >=1) {
-					message("Room name already exist!", "error");
-					redirect("index.php?view=add");
-				}else{
+				// if ($res >=1) {
+				// 	message("Room name already exist!", "error");
+				// 	redirect("../../index.php?p=rooms");
+				// }else{
 				$location = '';
 				if(isset($_FILES['image']) && !empty($_FILES['image']['tmp_name'])){
 						$file=$_FILES['image']['tmp_name'];
@@ -71,10 +71,10 @@ function doInsert(){
 					 $istrue = $room->create(); 
 					 if ($istrue == 1){
 					 	message("New [". $_POST['ROOM'] ."] created successfully!", "success");
-					 	redirect('index.php');
+					 	redirect('../../index.php?p=rooms');
 					 	
 					 }
-				}	 
+					 
 
 		 
 	}
@@ -132,7 +132,7 @@ function doDelete(){
 		$rm->delete($id[$i]);
 	}
 
-		message("Room already Deleted!","info");
+		message("Venue Deleted Successfully!","info");
 		redirect('index.php');
  }
  

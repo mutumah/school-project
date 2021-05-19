@@ -57,7 +57,7 @@ $_SESSION['departure'] =date_format(date_create($_POST['departure']),"Y-m-d");
    
   
   }else{
-     $query = "SELECT * FROM `tblroom` r ,`tblaccomodation` a WHERE r.`ACCOMID`=a.`ACCOMID`";
+     $query = "SELECT * FROM `tblroom` r ,`tblaccomodation` a ";
   }
 
    $accomodation = ' | ' . @$_GET['q'];
@@ -78,8 +78,8 @@ $_SESSION['departure'] =date_format(date_create($_POST['departure']),"Y-m-d");
                       foreach ($cur as $result) { 
 
 
-// filtering the rooms
- // ======================================================================================================
+
+
                     $mydb->setQuery("SELECT * FROM `tblreservation`     WHERE STATUS<>'Pending' AND ((
                         '$arrival' >= DATE_FORMAT(`ARRIVAL`,'%Y-%m-%d')
                         AND  '$arrival' <= DATE_FORMAT(`DEPARTURE`,'%Y-%m-%d')

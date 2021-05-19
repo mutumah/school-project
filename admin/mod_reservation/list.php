@@ -15,7 +15,7 @@
 <!--<td width="10"><strong>Confirmation</strong></td>-->
 <td width="80"><strong>Transaction Date</strong></td>
 <td width="80"><strong>Confimation Code</strong></td>
-<td width="70"><strong>Total Rooms</strong></td>
+<td width="70"><strong>Total </strong></td>
 <td width="80"><strong>Total Price</strong></td>
 <!-- <td width="80"><strong>Days</strong></td> -->
 <td width="80"><strong>Status</strong></td>
@@ -39,7 +39,7 @@ foreach ($cur as $result) {
 <td><?php echo $result->TRANSDATE; ?></td>  
 <td><?php echo $result->CONFIRMATIONCODE; ?></td>
 <td><?php echo $result->PQTY; ?></td>
-<td>&euro;<?php echo $result->SPRICE; ?></td>
+<td>Kshs <?php echo $result->SPRICE; ?></td>
 <td><?php echo $result->STATUS; ?></td> 
  <td >
 	<?php 
@@ -47,21 +47,21 @@ foreach ($cur as $result) {
 		<!-- <a class="cls_btn" id="<?php echo $result->reservation_id; ?>" data-toggle='modal' href="#profile" title="Click here to Change Image." ><i class="icon-edit">test</a> -->
 			<a href="index.php?view=view&code=<?php echo $result->CONFIRMATIONCODE; ?>" class="btn btn-primary btn-xs" ><i class="icon-edit">View</a>
 			<a href="controller.php?action=cancel&code=<?php echo $result->CONFIRMATIONCODE; ?>" class="btn btn-primary btn-xs" ><i class="icon-edit">Cancel</a>
-			<a href="controller.php?action=checkin&code=<?php echo $result->CONFIRMATIONCODE; ?>" class="btn btn-success btn-xs" ><i class="icon-edit">Check in</a>
+			<!-- <a href="controller.php?action=checkin&code=<?php echo $result->CONFIRMATIONCODE; ?>" class="btn btn-success btn-xs" ><i class="icon-edit">Check in</a> -->
 			<a href="controller.php?action=delete&code=<?php echo $result->CONFIRMATIONCODE; ?>" class="btn btn-danger btn-xs"  ><i class="icon-edit">Delete</a>
-			<a href="index.php?view=edit&code=<?php echo $result->CONFIRMATIONCODE; ?>&id=<?php echo $result->GUESTID; ?>" class="btn btn-primary btn-xs"  ><i class="icon-edit">Edit</a>
+			<!-- <a href="index.php?view=edit&code=<?php echo $result->CONFIRMATIONCODE; ?>&id=<?php echo $result->GUESTID; ?>" class="btn btn-primary btn-xs"  ><i class="icon-edit">Edit</a> -->
 		<?php
 		}elseif($result->STATUS == 'Checkedin'){
 	?>
 			<a href="index.php?view=view&code=<?php echo $result->CONFIRMATIONCODE; ?>" class="btn btn-primary btn-xs" ><i class="icon-edit">View</a>
-			<a href="controller.php?action=checkout&code=<?php echo $result->CONFIRMATIONCODE; ?>" class="btn btn-danger btn-xs" ><i class="icon-edit">Check out</a>
+			<!-- <a href="controller.php?action=checkout&code=<?php echo $result->CONFIRMATIONCODE; ?>" class="btn btn-danger btn-xs" ><i class="icon-edit">Check out</a> -->
 			<a href="controller.php?action=delete&code=<?php echo $result->CONFIRMATIONCODE; ?>" class="btn btn-danger btn-xs"  ><i class="icon-edit">Delete</a>
-			<a href="index.php?view=edit&code=<?php echo $result->CONFIRMATIONCODE; ?>&id=<?php echo $result->GUESTID; ?>" class="btn btn-primary btn-xs"  ><i class="icon-edit">Edit</a>
+			<!-- <a href="index.php?view=edit&code=<?php echo $result->CONFIRMATIONCODE; ?>&id=<?php echo $result->GUESTID; ?>" class="btn btn-primary btn-xs"  ><i class="icon-edit">Edit</a> -->
 	<?php
 		}elseif($result->STATUS == 'Checkedout'){ ?>
 			<a href="index.php?view=view&code=<?php echo $result->CONFIRMATIONCODE; ?>" class="btn btn-primary btn-xs" ><i class="icon-edit">View</a>
 			<a href="controller.php?action=delete&code=<?php echo $result->CONFIRMATIONCODE; ?>" class="btn btn-danger btn-xs"  ><i class="icon-edit">Delete</a>
-			<a href="index.php?view=edit&code=<?php echo $result->CONFIRMATIONCODE; ?>&id=<?php echo $result->GUESTID; ?>" class="btn btn-primary btn-xs"  ><i class="icon-edit">Edit</a>
+			<!-- <a href="index.php?view=edit&code=<?php echo $result->CONFIRMATIONCODE; ?>&id=<?php echo $result->GUESTID; ?>" class="btn btn-primary btn-xs"  ><i class="icon-edit">Edit</a> -->
 			
 	<?php }else{
 			?>
@@ -69,7 +69,7 @@ foreach ($cur as $result) {
 			<a href="controller.php?action=cancel&code=<?php echo $result->CONFIRMATIONCODE; ?>" class="btn btn-primary btn-xs" ><i class="icon-edit">Cancel</a>
 			<a href="controller.php?action=confirm&code=<?php echo $result->CONFIRMATIONCODE; ?>" class="btn btn-success btn-xs"  ><i class="icon-edit">Confirm</a>
 			<a href="controller.php?action=delete&code=<?php echo $result->CONFIRMATIONCODE; ?>" class="btn btn-danger btn-xs"  ><i class="icon-edit">Delete</a>
-			<a href="index.php?view=edit&code=<?php echo $result->CONFIRMATIONCODE; ?>&id=<?php echo $result->GUESTID; ?>" class="btn btn-primary btn-xs"  ><i class="icon-edit">Edit</a>
+			<!-- <a href="index.php?view=edit&code=<?php echo $result->CONFIRMATIONCODE; ?>&id=<?php echo $result->GUESTID; ?>" class="btn btn-primary btn-xs"  ><i class="icon-edit">Edit</a> -->
 	<?php
 		}
 

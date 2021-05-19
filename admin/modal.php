@@ -44,7 +44,7 @@ echo $resid;
 <strong>Departure</strong><br/>
 <strong>Room</strong><br/>
 <strong>Room Type</strong><br/>
-<strong>Nights</strong><br/>
+<strong>Days</strong><br/>
 <strong>Status</strong><br/>
 <strong>Option</strong><br/>
 </p>

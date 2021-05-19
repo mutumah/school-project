@@ -221,7 +221,7 @@ $_SESSION['departure'] =date_format(date_create($_POST['departure']),"Y-m-d");
                     
                              <!-- <?php echo $img_title; ?> -->
                             <figcaption class="img-title-active">
-                                <h5>  &euro; <?php echo $result->PRICE ;?></h5>    
+                                <h5>  Kshs <?php echo $result->PRICE ;?></h5>    
                             </figcaption>
 
              

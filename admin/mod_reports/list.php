@@ -21,7 +21,7 @@
         
       </div>
         <div class="col-sm-2 invoice-col">
-          Room
+          Venue
           <address>
             <input class="form-control" size="20" type="text" value="<?php echo isset($_POST['txtsearch']) ? $_POST['txtsearch'] :'' ?>" Placeholder="Search For...." name="txtsearch" id="txtsearch">
         </address>    
@@ -32,9 +32,9 @@
           <address>
             <div class="form-group">
 			  <select name="categ" class="form-control">
-			  	<option value="Checkedin" <?php echo isset($_POST['categ']) && $_POST['categ'] == 'Checkedin' ? 'selected' :'' ?>>Checkedin</option>
+			  	<!-- <option value="Checkedin" <?php echo isset($_POST['categ']) && $_POST['categ'] == 'Checkedin' ? 'selected' :'' ?>>Checkedin</option>
         <option value="Checkedout" <?php echo isset($_POST['categ']) && $_POST['categ'] == 'Checkedout' ? 'selected' :'' ?>>Checkedout</option>
-        <option value="Arrival" <?php echo isset($_POST['categ']) && $_POST['categ'] == 'Arrival' ? 'selected' :'' ?>>Arrival</option>
+        <option value="Arrival" <?php echo isset($_POST['categ']) && $_POST['categ'] == 'Arrival' ? 'selected' :'' ?>>Arrival</option> -->
         <option value="Pending" <?php echo isset($_POST['categ']) && $_POST['categ'] == 'Pending' ? 'selected' :'' ?>>Pending</option>
         <option value="Confirmed" <?php echo isset($_POST['categ']) && $_POST['categ'] == 'Confirmed' ? 'selected' :'' ?>>Confirmed</option>
 			  </select>
@@ -96,11 +96,11 @@
             <thead>
             <tr>
               <th>Guest</th>
-              <th>Room</th>
+              <th>Venue</th>
               <th>Price</th>
               <th>Arrival</th>
               <th>Departure</th>
-              <th>Night(s)</th>
+              <th>Day(s)</th>
               <th>Subtotal</th>
             </tr>
             </thead>
@@ -133,11 +133,11 @@
                   <tr> 
                     <td><?php echo $result->G_FNAME . ' ' .  $result->G_LNAME;?></td>
                     <td><?php echo $result->ACCOMODATION . ' [' .$result->ROOM.']' ;?></td>
-                    <td> &euro; <?php echo $result->PRICE;?></td>
+                    <td> Kshs <?php echo $result->PRICE;?></td>
                     <td><?php echo date_format(date_create($result->ARRIVAL),'m/d/Y');?></td>
                     <td><?php echo date_format(date_create($result->DEPARTURE),'m/d/Y');?></td>
                     <td><?php echo ($days==0) ? '1' : $days;?></td>
-                    <td> &euro; <?php echo $result->RPRICE;?></td>
+                    <td> Kshs <?php echo $result->RPRICE;?></td>
                   </tr>
                   <?php 
                     @$tot += $result->RPRICE;
@@ -165,7 +165,7 @@
             <table class="table">
               <tr>
                 <th style="width:50%">Total:</th>
-                <td> &euro; <?php echo @$tot ; ?></td>
+                <td> Kshs <?php echo @$tot ; ?></td>
               </tr> 
             </table>
           </div>

@@ -1,8 +1,11 @@
+
 <?php
+
 
 if(isset($_GET['id'])){
     removetocart($_GET['id']);
 }
+
  
  if (isset($_POST['clear'])){
    unset($_SESSION['pay']);
@@ -29,7 +32,7 @@ if(isset($_GET['id'])){
              <thead>
               <tr  bgcolor="#999999">
               <!-- <th width="10">#</th> -->
-              <th align="center" width="120">Venue</th>
+              <th align="center" width="120">Room</th>
               <th align="center" width="120">Check In</th>
               <th align="center" width="120">Check Out</th> 
               <th  width="120">Price</th> 
@@ -63,7 +66,7 @@ if(isset($_GET['id'])){
                         echo '<td>'. $result->ROOM.' '. $result->ROOMDESC.' </td>';
                         echo '<td>'.date_format(date_create( $_SESSION['dragonhouse_cart'][$i]['dragonhousecheckin']),"m/d/Y").'</td>';
                         echo '<td>'.date_format(date_create( $_SESSION['dragonhouse_cart'][$i]['dragonhousecheckout']),"m/d/Y").'</td>';
-                        echo '<td > &euro;'. $result->PRICE.'
+                        echo '<td > Kshs '. $result->PRICE.'
                           <input type="hidden" value="'.$result->PRICE.'"  name="roomprice'.$_SESSION['dragonhouse_cart'][$i]['dragonhouseroomid'].'" id="roomprice'.$_SESSION['dragonhouse_cart'][$i]['dragonhouseroomid'].'"/>
 
                         </td>'; 
@@ -71,24 +74,21 @@ if(isset($_GET['id'])){
                         
                         echo  '<input type="hidden"  name="MealPrice'.$_SESSION['dragonhouse_cart'][$i]['dragonhouseroomid'].'" id="MealPrice'.$_SESSION['dragonhouse_cart'][$i]['dragonhouseroomid'].'"/>';
                         echo '</td>';
-                        echo '<td>$<output id="TotAmount'.$_SESSION['dragonhouse_cart'][$i]['dragonhouseroomid'].'" >'.$_SESSION['dragonhouse_cart'][$i]['dragonhouseroomprice'].'</output></td>';
+                        echo '<td>Ksh <output id="TotAmount'.$_SESSION['dragonhouse_cart'][$i]['dragonhouseroomid'].'" >'.$_SESSION['dragonhouse_cart'][$i]['dragonhouseroomprice'].'</output></td>';
                         echo '<td ><a href="index.php?view=processcart&id='.$result->ROOMID.'">Remove</td>';
-                                             
+ 
                       } 
-                      $date_check =  json_encode($_SESSION['dragonhouse_cart'][$i]['dragonhousecheckin']);
-                      
-                      echo $date_check ;
-                      $query1 = "SELECT * FROM 'tblreservation' WHERE ARRIVAL = '$date_check'";
-                      $conn = open_connection();
-                      $datecheckoutcome = $mysqli_connect($conn,$query1);
-                      echo json_encode( $datecheckoutcome);
-                    
-                    $payable += $_SESSION['dragonhouse_cart'][$i]['dragonhouseroomprice'] ;
+
+
+                      $payable += $_SESSION['dragonhouse_cart'][$i]['dragonhouseroomprice'] ;
+
+
+ 
+
                  
                 }
 
                 $_SESSION['pay'] = $payable;
-                
               
               } 
             ?>
@@ -99,7 +99,7 @@ if(isset($_GET['id'])){
             <tr>
            <td colspan="6"><h4 align="right">Total:</h4></td>
            <td colspan="4">
-             <h4><b>&euro;<span id="sum"><?php  echo isset($_SESSION['pay']) ?  $_SESSION['pay'] :'Your booking cart is empty.';?></span></b></h4>
+             <h4><b>Kshs <span id="sum"><?php  echo isset($_SESSION['pay']) ?  $_SESSION['pay'] :'Your booking cart is empty.';?></span></b></h4>
                          
             </td>
             </tr>
@@ -112,7 +112,7 @@ if(isset($_GET['id'])){
              if (isset($_SESSION['dragonhouse_cart'])){
               ?> 
                  <button type="submit" class="button "name="clear">Clear Cart</button> 
-             <?php              
+             <?php
              
               if (isset($_SESSION['GUESTID'])){
                 ?>

@@ -196,7 +196,7 @@ $_SESSION['GUESTID'] =   $lastguest;
           <td>Arrival</td>
           <td>Departure</td>
           <td>Price</td>
-          <td>Night(s)</td>
+          <td>Day(s)</td>
           <td>Subtotal</td>
         </tr>
       </thead> 
@@ -222,9 +222,9 @@ for ($i=0; $i < $count_cart  ; $i++) {
           <td><?php echo  $result->ROOM.' '. $result->ROOMDESC; ?></td>
           <td><?php echo  date_format(date_create( $_SESSION['dragonhouse_cart'][$i]['dragonhousecheckin']),"m/d/Y"); ?></td>
           <td><?php echo  date_format(date_create( $_SESSION['dragonhouse_cart'][$i]['dragonhousecheckout']),"m/d/Y"); ?></td>
-          <td><?php echo  ' &euro;'. $result->PRICE; ?></td>
+          <td><?php echo  ' Kshs '. $result->PRICE; ?></td>
           <td><?php echo   $_SESSION['dragonhouse_cart'][$i]['dragonhouseday']; ?></td>
-          <td><?php echo ' &euro;'.   $_SESSION['dragonhouse_cart'][$i]['dragonhouseroomprice']; ?></td>
+          <td><?php echo ' Kshs '.   $_SESSION['dragonhouse_cart'][$i]['dragonhouseroomprice']; ?></td>
         </tr>
 <?php
        $payable += $_SESSION['dragonhouse_cart'][$i]['dragonhouseroomprice'] ;
@@ -242,7 +242,7 @@ for ($i=0; $i < $count_cart  ; $i++) {
  
 
     <div class="right"> 
-      <h3 style="text-align: right;">Total: &euro; <?php echo   $_SESSION['pay'] ;?></h3>
+      <h3 style="text-align: right;">Total: Kshs <?php echo   $_SESSION['pay'] ;?></h3>
     </div>
     <br>
     <div class="">

@@ -27,7 +27,7 @@
 				  </thead>
 				  <tbody>
 				  	<?php 
-				  		$mydb->setQuery("SELECT *,ACCOMODATION FROM tblroom r, tblaccomodation a WHERE r.ACCOMID = a.ACCOMID ORDER BY  ROOMID ASC ");
+				  		$mydb->setQuery("SELECT *,ACCOMODATION FROM tblroom r, tblaccomodation a  ORDER BY  ROOMID ASC ");
 				
 				  		$cur = $mydb->loadResultList();
 
@@ -43,7 +43,7 @@
 						echo '<td>'. $result->ACCOMODATION.'</td>';
 				  		echo '<td>'. $result->NUMPERSON.'</td>';
 				  		
-				  		echo '<td> &euro;'. $result->PRICE.'</td>';
+				  		echo '<td> Kshs '. $result->PRICE.'</td>';
 				  		// echo '<td>'.$result->ROOMNUM.' </td>';
 				  		echo '</tr>';
 				  	} 
